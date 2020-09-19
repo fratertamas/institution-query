@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 public class InstitutionQueryController {
     @GetMapping("institution-query")
     public EducationalInstitution[] query(@RequestParam String omIdentificationNumber) {
-        final String uri = "http://localhost:8083/institution-read?omIdentificationNumber="+omIdentificationNumber;
+        final String uri = "http://institution-persistence:8083/institution-read?omIdentificationNumber="+omIdentificationNumber;
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject(uri,EducationalInstitution[].class);
     }
